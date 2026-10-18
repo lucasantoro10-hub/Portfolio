@@ -1,0 +1,308 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Luca Santoro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: CV orientato al prodotto, intestazione con riepilogo e quattro aree di prodotto, sezioni a due colonne (etichetta | contenuto), tabella dei messaggi ISO 20022 */
+:root {
+  --bg: #EEF1F2;
+  --panel: #E2E8EA;
+  --ink: #0F1D24;
+  --muted: #4B5C64;
+  --line: #C6D0D4;
+  --accent: #0B6B5E;
+  --accent-ink: #FFFFFF;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1619; --panel: #152227; --ink: #E6EEF0; --muted: #9DB0B7; --line: #25363C;
+    --accent: #4FC9B3; --accent-ink: #06201B; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1619; --panel: #152227; --ink: #E6EEF0; --muted: #9DB0B7; --line: #25363C;
+  --accent: #4FC9B3; --accent-ink: #06201B; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.6 var(--font-body);
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1000px; margin: 0 auto; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Intestazione */
+.head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; padding-block: 56px 48px; align-items: start; }
+.eyebrow { font: 500 12px/1.4 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+h1 { font: 700 clamp(40px, 7vw, 68px)/1 var(--font-display); letter-spacing: -0.035em; margin: 0 0 12px; text-wrap: balance; }
+.role { font: 500 clamp(18px, 2.4vw, 22px)/1.3 var(--font-display); margin: 0 0 20px; }
+.meta { font: 400 14px/1.7 var(--font-mono); color: var(--muted); margin: 0 0 24px; }
+.summary { max-width: 36em; margin: 0; }
+
+.products { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); min-width: 0; }
+.products li { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.products li:last-child { border-bottom: 0; }
+.products b { display: block; font: 700 17px/1.3 var(--font-display); letter-spacing: -0.01em; }
+.products span { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 2px; }
+
+/* Sezioni */
+section { padding-block: 44px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: 20px 48px; }
+h2 { font: 500 12px/1.5 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 4px 0 0; }
+h3 { font: 700 18px/1.3 var(--font-display); letter-spacing: -0.01em; margin: 0 0 4px; text-wrap: balance; }
+p { margin: 0 0 16px; }
+.muted { color: var(--muted); }
+
+.list { list-style: none; margin: 0; padding: 0; }
+.list > li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.list > li:first-child { padding-top: 0; }
+.list > li:last-child { border-bottom: 0; padding-bottom: 0; }
+.when { font: 500 13px/1.7 var(--font-mono); color: var(--accent); }
+.where { color: var(--muted); font-size: 15px; margin: 0 0 10px; }
+.where.tight { margin: 0; }
+
+.points { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.points li { position: relative; padding-left: 20px; font-size: 15px; line-height: 1.55; }
+.points li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 1px; background: var(--accent); }
+.points b { font-weight: 600; }
+
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 12px/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--panel); }
+td:first-child { font: 500 13px/1.6 var(--font-mono); white-space: nowrap; color: var(--accent); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+.tags li { font: 500 13px/1 var(--font-mono); padding: 9px 12px; border: 1px solid var(--line); border-radius: 3px; }
+.langs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 32px; margin: 0; padding: 0; list-style: none; max-width: 32em; }
+.langs li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-block: 8px; font-size: 15px; }
+.langs span:last-child { color: var(--muted); font-family: var(--font-mono); font-size: 13px; text-align: right; }
+.sub { font: 500 12px/1.5 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+
+.btn { font: 600 15px/1 var(--font-body); background: var(--accent); color: var(--accent-ink); border: 0; padding: 14px 20px; cursor: pointer; border-radius: 4px; }
+.btn:hover { filter: brightness(1.08); }
+.mail { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+.mail code { font: 500 16px/1.4 var(--font-mono); background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; border-radius: 4px; user-select: all; overflow-wrap: anywhere; }
+.status { font: 500 13px/1.4 var(--font-mono); color: var(--accent); min-height: 1.4em; margin: 0; }
+
+footer { padding-block: 32px; border-top: 1px solid var(--line); font: 400 13px/1.6 var(--font-mono); color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .head { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px 32px; }
+  section { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 36px; }
+}
+@media (max-width: 480px) {
+  .list > li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .langs { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <div>
+      <p class="eyebrow">Curriculum professionale</p>
+      <h1>Luca Santoro</h1>
+      <p class="role">Cash Management Sales · Transaction Banking</p>
+      <p class="meta">BNL BNP Paribas · Milano<br>lucasantoro10@gmail.com</p>
+      <p class="summary">Da oltre cinque anni in BNL BNP Paribas: prima sull'operatività di pagamenti e cash management, dal 2025 in front office su un portafoglio di circa 900 NDG tra gruppi multinazionali, grandi corporate, PMI e fintech. Unisco la conoscenza tecnica di flussi e messaggi alla gestione commerciale: analisi dei flussi, proposta, negoziazione e attivazione.</p>
+    </div>
+
+    <ul class="products" aria-label="Aree di prodotto">
+      <li><b>SEPA</b><span>Bonifici SCT e SCT Inst, incassi SDD Core e B2B</span></li>
+      <li><b>SWIFT</b><span>Pagamenti cross-border, messaggi MT e MX, ISO 20022</span></li>
+      <li><b>Cash pooling</b><span>Strutture ZBA, domestiche e internazionali</span></li>
+      <li><b>Connettività</b><span>SWIFTNet, EBICS, SFTP e FTPS</span></li>
+    </ul>
+  </header>
+
+  <main>
+    <section id="esperienza">
+      <h2>Esperienza</h2>
+      <ul class="list">
+        <li>
+          <span class="when">2025 – oggi</span>
+          <div>
+            <h3>Cash Management Sales, Front Office</h3>
+            <p class="where">BNL BNP Paribas, Milano</p>
+            <ul class="points">
+              <li>Gestisco e sviluppo un portafoglio Cash Management di circa <b>900 NDG</b>, tra gruppi multinazionali, grandi corporate, PMI e fintech.</li>
+              <li>Analizzo circa <b>1,5 miliardi di euro l'anno di flussi di pagamento e incasso</b> per individuare opportunità e bisogni operativi del cliente.</li>
+              <li>Sviluppo nuovo business, cross-selling e up-selling, dall'individuazione dell'opportunità alla presentazione della soluzione e alla proposta commerciale.</li>
+              <li>Strutturo e propongo <b>cash pooling domestico e internazionale</b>, coordinandomi con il team tecnico per l'implementazione.</li>
+              <li>Negozio <b>pricing e condizioni commerciali</b> dei prodotti di pagamento e cash management.</li>
+              <li>Affianco i clienti sull'evoluzione dei pagamenti, tra cui <b>ISO 20022, SCT Inst e RTGS</b>, e sulla connettività internazionale con <b>SWIFTNet, EBICS, SFTP e FTPS</b>.</li>
+              <li>Gestisco problemi ed escalation dei clienti, coordinando le strutture interne fino alla risoluzione, in italiano e in inglese.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="when">2021 – 2025</span>
+          <div>
+            <h3>Middle Office Specialist</h3>
+            <p class="where">BNL BNP Paribas, Back Office</p>
+            <ul class="points">
+              <li>Gestione operativa dei processi di cash management, con focus su flussi di tesoreria e cash pooling domestico e internazionale.</li>
+              <li>Messaggistica SWIFT: <b>MT7XX</b> e messaggi ISO 20022 <b>pacs.008 e pacs.009</b>.</li>
+              <li>Casi <b>SEPA Recall e camt.056</b>, in coordinamento con gli istituti coinvolti.</li>
+              <li>Interventi con le banche corrispondenti per risolvere discrepanze e problemi sui pagamenti, e riconciliazioni dei conti Nostro, anche in valuta.</li>
+              <li>Operazioni di <b>Trade Finance</b> internazionali, con un volume mensile medio di circa 50 milioni di euro.</li>
+              <li>Monitoraggio degli SLA operativi del team, con <b>90% di risoluzioni nei tempi</b>.</li>
+              <li>Supporto all'implementazione e all'ottimizzazione del cash pooling per gruppi multinazionali.</li>
+              <li>Analisi funzionale dei processi di back office a supporto dello sviluppo di soluzioni <b>RPA</b>.</li>
+              <li>In tesoreria, ripianamenti serali per la chiusura del saldo EBA.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="when">2020</span>
+          <div>
+            <h3>Personal Banking Consultant</h3>
+            <p class="where">UniCredit, filiale Cordusio</p>
+            <ul class="points">
+              <li>Consulenza su prodotti e servizi bancari a un portafoglio di oltre 100 clienti privati.</li>
+              <li>Analisi sulla digitalizzazione dei servizi bancari, con un aumento del 20% nell'adozione dei servizi digitali.</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="flussi">
+      <h2>Flussi e specifiche</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th scope="col">Messaggio</th><th scope="col">Ambito</th></tr></thead>
+          <tbody>
+            <tr><td>camt.056 · camt.029</td><td>Richieste di recall SEPA e relativa risposta.</td></tr>
+            <tr><td>pacs.004</td><td>Restituzione di un pagamento già regolato.</td></tr>
+            <tr><td>pacs.008 · pacs.009</td><td>Pagamenti cross-border cliente e interbancari in formato ISO 20022, equivalenti degli MT103 e MT202.</td></tr>
+            <tr><td>MT7XX</td><td>Messaggi SWIFT per crediti documentari e garanzie, nelle operazioni di Trade Finance.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="competenze">
+      <h2>Competenze</h2>
+      <div>
+        <p class="sub">Prodotti</p>
+        <ul class="tags">
+          <li>Cash pooling ZBA</li>
+          <li>SEPA SCT / SCT Inst</li>
+          <li>SDD Core / B2B</li>
+          <li>SWIFT MT / MX</li>
+          <li>ISO 20022</li>
+          <li>Formati CBI</li>
+          <li>Banche corrispondenti</li>
+          <li>Trade Finance</li>
+          <li>SWIFTNet</li>
+          <li>EBICS</li>
+          <li>SFTP</li>
+          <li>FTPS</li>
+        </ul>
+        <p class="sub">Strumenti</p>
+        <ul class="tags">
+          <li>Excel</li>
+          <li>Access</li>
+          <li>VBA</li>
+          <li>PowerShell</li>
+          <li>RPA</li>
+          <li>C++</li>
+          <li>HTML / CSS</li>
+        </ul>
+        <p class="sub">Lingue</p>
+        <ul class="langs">
+          <li><span>Italiano</span><span>madrelingua</span></li>
+          <li><span>Inglese</span><span>C1 certificato</span></li>
+          <li><span>Spagnolo</span><span>A1</span></li>
+          <li><span>Francese</span><span>A1 certificato</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="formazione">
+      <h2>Formazione</h2>
+      <ul class="list">
+        <li>
+          <span class="when">In corso</span>
+          <div>
+            <h3>Master in Corporate Banking</h3>
+            <p class="where tight">LUISS Business School. Focus su Corporate e Transaction Banking.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2020</span>
+          <div>
+            <h3>Master in Advanced Global Studies</h3>
+            <p class="where tight">Università Cattolica del Sacro Cuore. Relazioni internazionali, economia globale e geopolitica, interamente in inglese.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2015 – 2019</span>
+          <div>
+            <h3>Laurea in Economia e Mercati Globali</h3>
+            <p class="where tight">Università degli Studi di Milano-Bicocca. Voto finale 102/110.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <div>
+        <div class="mail">
+          <code id="mail-text">lucasantoro10@gmail.com</code>
+          <button class="btn" id="copy-btn" type="button">Copia indirizzo</button>
+        </div>
+        <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+        <p class="muted">Milano</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Luca Santoro</span>
+    <span>Sito personale. Le opinioni espresse sono mie e non impegnano BNL BNP Paribas.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-btn');
+  var status = document.getElementById('copy-status');
+  var text = document.getElementById('mail-text');
+  function selectText() {
+    var r = document.createRange();
+    r.selectNodeContents(text);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  btn.addEventListener('click', function () {
+    var value = text.textContent.trim();
+    try {
+      navigator.clipboard.writeText(value).then(function () {
+        status.textContent = 'Indirizzo copiato.';
+      }, function () {
+        selectText();
+        status.textContent = 'Indirizzo selezionato, copialo con Ctrl+C.';
+      });
+    } catch (e) {
+      selectText();
+      status.textContent = 'Indirizzo selezionato, copialo con Ctrl+C.';
+    }
+  });
+})();
+</script>
+
+</body></html>
